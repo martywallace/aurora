@@ -1,1 +1,1 @@
-bin/*.js -clrf
+*.js -clrf

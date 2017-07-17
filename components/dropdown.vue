@@ -117,7 +117,8 @@
 </template>
 
 <style lang="scss">
-  @import "../scss/theme";
+  @import "../scss/vars/theme";
+  @import "../scss/mixins/component";
 
   .aurora-dropdown {
     @include inline-component;
