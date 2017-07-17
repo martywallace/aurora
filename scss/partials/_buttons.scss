@@ -1,0 +1,66 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 12px 14px;
+  background: $aurora-theme-dim;
+  text-decoration: none;
+  border-radius: $aurora-border-radius-small;
+  vertical-align: middle;
+
+  &, &:hover, &:active {
+    color: #222;
+  }
+
+  &:hover {
+    background: darken($aurora-theme-dim, 10%);
+  }
+
+  &:active {
+    background: darken($aurora-theme-dim, 15%);
+  }
+
+  &--primary {
+    background: $aurora-theme-primary;
+
+    &, &:hover, &:active {
+      color: #FFF;
+    }
+
+    &:hover {
+      background: lighten($aurora-theme-primary, 5%);
+    }
+
+    &:active {
+      background: darken($aurora-theme-primary, 5%);
+    }
+  }
+
+  &--large {
+    padding: 18px 22px;
+  }
+
+  &--small {
+    padding: 4px 6px;
+  }
+}
+
+.button-group {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: $aurora-border-radius-small;
+
+  .button {
+    float: left;
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: $aurora-border-radius-small;
+      border-bottom-left-radius: $aurora-border-radius-small;
+    }
+
+    &:last-child {
+      border-top-right-radius: $aurora-border-radius-small;
+      border-bottom-right-radius: $aurora-border-radius-small;
+    }
+  }
+}

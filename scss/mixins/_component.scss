@@ -1,0 +1,29 @@
+@mixin component {
+  position: relative;
+}
+
+@mixin inline-component {
+  @include component;
+
+  display: inline-block;
+  vertical-align: middle;
+  height: $aurora-control-size;
+  line-height: $aurora-control-size;
+}
+
+@mixin border {
+  border: 1px solid $aurora-theme-strong-border-color;
+}
+
+@mixin rounded {
+  border-radius: $aurora-border-radius-small;
+}
+
+@mixin dim-action {
+  color: #AAA;
+  background: #FFF;
+
+  &:hover {
+    color: $aurora-theme-primary;
+  }
+}

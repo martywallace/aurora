@@ -1,0 +1,46 @@
+@mixin grid($size: 960px, $increment: 5, $gutter: 0) {
+  @include clear;
+
+  display: block;
+  margin: 0 auto;
+  max-width: $size;
+
+  > .grid-row {
+    @include clear;
+
+    + .grid-row {
+      margin-top: $gutter;
+    }
+
+    @include mq-large {
+      margin-left: -$gutter;
+
+      > .column:first-child {
+        padding-left: $gutter;
+      }
+    }
+  }
+
+  > .column, > .grid-row > .column {
+    width: 100%;
+
+    + .column {
+      padding-top: $gutter;
+    }
+
+    @include mq-large {
+      float: left;
+
+      + .column {
+        padding-top: 0;
+        padding-left: $gutter;
+      }
+
+      @for $i from 0 through 100 {
+        @if $i % $increment == 0 {
+          &--#{$i} { width: $i * 1%; }
+        }
+      }
+    }
+  }
+}

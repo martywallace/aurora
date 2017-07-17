@@ -1,0 +1,13 @@
+{
+  "name": "aurora",
+  "version": "3.0.0",
+  "description": "Vue oriented front-end development framework.",
+  "license": "MIT",
+  "author": "Marty Wallace <marty@martywallace.com> (https://martywallace.com)",
+  "bin": {
+    "aurora": "./bin/aurora.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0"
+  }
+}

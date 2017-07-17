@@ -1,0 +1,129 @@
+// Element reference used:
+// https://developer.mozilla.org/en/docs/Web/HTML/Element
+
+// Remove any margin, padding.
+html, address, article, body, footer, header, h1, h2, h3, h4, h5, h6, hgroup, nav, section,
+blockquote, dd, div, dl, dt, figcaption, figure, hr, li, main, ol, p, pre, ul, img, video, embed,
+iframe, object, del, ins, caption, col, colgroup, table, tbody, td, tfoot, th, thead, tr, button,
+datalist, fieldset, form, input, keygen, label, legend, meter, optgroup, option, output, progress,
+select, textarea, details, dialog, menu, menuitem, summary {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+}
+
+body {
+  font: $aurora-theme-font-size sans-serif;
+}
+
+code, pre {
+  font: $aurora-theme-font-size monospace;
+}
+
+pre {
+  overflow: auto;
+}
+
+h1 { font-size: 220%; }
+h2 { font-size: 200%; }
+h3 { font-size: 180%; }
+h4 { font-size: 160%; }
+h5 { font-size: 140%; }
+h6 { font-size: 120%; }
+
+// Declare the following as block elements.
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section,
+summary {
+  display: block;
+}
+
+img {
+  border: none;
+  max-width: 100%;
+  height: auto;
+}
+
+// Make interactive things look interactive.
+a, button, select, input[type='button'], input[type='submit'], input[type='checkbox'],
+input[type='radio'], .interactive {
+  cursor: pointer;
+}
+
+// Who uses lists to list things anymore?
+ol, ul {
+  list-style: none;
+}
+
+// Who resizes textareas horizontally?
+textarea {
+  resize: vertical;
+}
+
+// More consistent select boxes.
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #FFF url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiCiAgIHdpZHRoPSI4cHgiIGhlaWdodD0iNXB4IiB2aWV3Qm94PSIwIDAgOCA1IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDUiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBmaWxsPSIjMWMxZDFkIiBkPSJNMCwwYzAsMCwzLjQsNC40LDMuNSw0LjRDMy43LDQuNCw3LjEsMCw3LjEsMEgweiIvPgo8L3N2Zz4KCg==') no-repeat right 12px center;
+}
+
+label {
+  display: block;
+}
+
+input, select, textarea, button {
+  font: inherit;
+  outline: none;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #DDD;
+  border-radius: $aurora-border-radius-small;
+
+  &:focus {
+    border: 1px solid #AAA;
+  }
+}
+
+button {
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px 10px;
+  border: 1px solid #DDD;
+}
+
+th {
+  background: #EEE;
+}
+
+// Make links a bit prettier and more relevant.
+a {
+  color: $aurora-theme-primary;
+
+  &:hover {
+    color: lighten($aurora-theme-primary, 10%);
+  }
+}

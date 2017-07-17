@@ -1,0 +1,25 @@
+.float {
+  &--left { float: left; }
+  &--right { float: right; }
+}
+
+.text-align {
+  &--left { text-align: left; }
+  &--right { text-align: right; }
+  &--center { text-align: center; }
+  &--justify { text-align: justify; }
+}
+
+.position {
+  &--absolute { position: absolute; }
+  &--fixed { position: fixed; }
+  &--relative { position: relative; }
+  &--static { position: static; }
+}
+
+.display {
+  &--none { display: none; }
+  &--inline { display: inline; }
+  &--inline-block { display: inline-block; }
+  &--block { display: block; }
+}

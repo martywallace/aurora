@@ -1,0 +1,6 @@
+@mixin mq($min) { @media screen and (min-width: $min) { @content; } }
+@mixin mq-medium { @include mq($aurora-mq-medium) { @content; } }
+@mixin mq-large { @include mq($aurora-mq-large) { @content; } }
+@mixin mq-x-large { @include mq($aurora-mq-x-large) { @content; } }
+@mixin mq-landscape { @media screen and (orientation: landscape) { @content; } }
+@mixin mq-portrait { @media screen and (orientation: portrait) { @content; } }
