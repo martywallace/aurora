@@ -7,8 +7,8 @@
 
   display: inline-block;
   vertical-align: middle;
-  height: $aurora-control-size;
-  line-height: $aurora-control-size;
+  height: $aurora-theme-control-size;
+  line-height: $aurora-theme-control-size;
 }
 
 @mixin border {
@@ -16,7 +16,7 @@
 }
 
 @mixin rounded {
-  border-radius: $aurora-border-radius-small;
+  border-radius: $aurora-theme-border-radius-small;
 }
 
 @mixin dim-action {

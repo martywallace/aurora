@@ -142,13 +142,13 @@
     display: inline-block;
     float: left;
     padding: 0 6px;
-    height: $aurora-control-size;
+    height: $aurora-theme-control-size;
     background: #FFF;
   }
 
   .aurora-dropdown-text {
-    border-top-left-radius: $aurora-border-radius-small;
-    border-bottom-left-radius: $aurora-border-radius-small;
+    border-top-left-radius: $aurora-theme-border-radius-small;
+    border-bottom-left-radius: $aurora-theme-border-radius-small;
     border-right: none;
     min-width: 160px;
 
@@ -160,8 +160,8 @@
   .aurora-dropdown-icon {
     @include dim-action;
 
-    border-top-right-radius: $aurora-border-radius-small;
-    border-bottom-right-radius: $aurora-border-radius-small;
+    border-top-right-radius: $aurora-theme-border-radius-small;
+    border-bottom-right-radius: $aurora-theme-border-radius-small;
   }
 
   .aurora-dropdown-options {
@@ -173,9 +173,9 @@
     min-width: 100%;
     background: #FFF;
     border-top: none;
-    border-bottom-left-radius: $aurora-border-radius-small;
-    border-bottom-right-radius: $aurora-border-radius-small;
-    max-height: $aurora-control-size * 10;
+    border-bottom-left-radius: $aurora-theme-border-radius-small;
+    border-bottom-right-radius: $aurora-theme-border-radius-small;
+    max-height: $aurora-theme-control-size * 10;
     overflow: auto;
     box-shadow: 0 2px 3px rgba(#000, 0.1);
 

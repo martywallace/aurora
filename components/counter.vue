@@ -62,8 +62,8 @@
 
   .aurora-counter-value, .aurora-counter-action {
     display: inline-block;
-    height: $aurora-control-size;
-    line-height: $aurora-control-size;
+    height: $aurora-theme-control-size;
+    line-height: $aurora-theme-control-size;
     padding: 0 6px;
     float: left;
   }
@@ -81,20 +81,20 @@
     @include border;
 
     font-size: 12px;
-    width: $aurora-control-size;
+    width: $aurora-theme-control-size;
 
     .aurora-icon {
-      line-height: $aurora-control-size;
+      line-height: $aurora-theme-control-size;
     }
 
     &:first-child {
-      border-top-left-radius: $aurora-border-radius-small;
-      border-bottom-left-radius: $aurora-border-radius-small;
+      border-top-left-radius: $aurora-theme-border-radius-small;
+      border-bottom-left-radius: $aurora-theme-border-radius-small;
     }
 
     &:last-child {
-      border-top-right-radius: $aurora-border-radius-small;
-      border-bottom-right-radius: $aurora-border-radius-small;
+      border-top-right-radius: $aurora-theme-border-radius-small;
+      border-bottom-right-radius: $aurora-theme-border-radius-small;
     }
   }
 </style>

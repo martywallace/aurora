@@ -90,7 +90,7 @@
     @include rounded;
     @include dim-action;
 
-    height: $aurora-control-size;
+    height: $aurora-theme-control-size;
     padding: 0 6px;
     margin: 2px;
 

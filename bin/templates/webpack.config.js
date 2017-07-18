@@ -45,7 +45,7 @@ module.exports = {
   output: {
     filename: '[name]',
     publicPath: `/${config.dist}/`,
-    path: path.resolve(__dirname, `../${config.public}/${config.dist}/`)
+    path: path.resolve(__dirname, `${config.public}/${config.dist}/`)
   },
   module: {
     rules: [

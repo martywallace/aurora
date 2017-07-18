@@ -37,7 +37,7 @@
     @include border;
     @include rounded;
 
-    width: $aurora-control-size;
+    width: $aurora-theme-control-size;
     background: #FFF;
     cursor: pointer;
     text-align: center;
