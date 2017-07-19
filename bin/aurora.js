@@ -2,7 +2,7 @@
 
 const aurora = require('commander');
 
-aurora.version('0.1.1');
+aurora.version('0.1.2');
 
 require('./commands/build')(aurora);
 
