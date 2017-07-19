@@ -17,58 +17,38 @@ module.exports = program => program.command('setup')
       'src/components'
     ];
 
-    Promise.all(dirs.map(dir => fs.ensureDir(path.resolve(process.cwd(), dir)))).then(() => {
-      return fs.pathExists(path.resolve(process.cwd(), 'webpack.config.js'));
-    })
-    .then(webpackConfigExists => {
-      if (!webpackConfigExists) {
-        // Copy across the webpack file.
-        const webpackConfigSource = path.resolve(__dirname, '../../bin/templates/webpack.config.js');
-        const webpackConfigDestination = path.resolve(process.cwd(), 'webpack.config.js');
+    const files = [
+      { expected: 'src/js/app.js', body: 'app.js' },
+      { expected: 'src/sass/app.scss', body: 'app.scss' },
+      { expected: 'src/components/App.vue', body: 'App.vue' },
+      { expected: 'webpack.config.js', body: 'webpack.config.js' },
+      { expected: '.babelrc', body: { presets: ['es2015'] } },
+      { expected: 'package.json', body: { name: 'new-aurora-app', version: '0.1.0' } }
+    ];
 
-        return fs.copy(webpackConfigSource, webpackConfigDestination);
-      }
-    })
-    .then(() => fs.pathExists(path.resolve(process.cwd(), '.babelrc')))
-    .then(babelRcExists => {
-      if (!babelRcExists) {
-        // Create .babelrc file.
-        return fs.writeJSON(path.resolve(process.cwd(), '.babelrc'), { presets: ['es2015'] }, { spaces: 2 });
-      }
-    })
-    .then(() => fs.pathExists(path.resolve(process.cwd(), 'src/sass/app.scss')))
-    .then(appScssExists => {
-      if (!appScssExists) {
-        const appScssSource = path.resolve(__dirname, '../../bin/templates/app.scss');
-        const appScssDestination = path.resolve(process.cwd(), 'src/sass/app.scss');
+    Promise.all(dirs.map(dir => fs.ensureDir(path.resolve(process.cwd(), dir))))
+    .then(() => Promise.all(files.map(def => fs.exists(path.resolve(process.cwd(), def.expected)))))
+    .then(exists => {
+      return Promise.all(exists.map((has, index) => {
+        if (has) {
+          // This file already exists, do not do anything.
+          return null;
+        } else {
+          // Create this file.
+          const def = files[index];
 
-        return fs.copy(appScssSource, appScssDestination);
-      }
-    })
-    .then(() => fs.pathExists(path.resolve(process.cwd(), 'src/js/app.js')))
-    .then(appJsExists => {
-      if (!appJsExists) {
-        const appJsSource = path.resolve(__dirname, '../../bin/templates/app.js');
-        const appJsDestination = path.resolve(process.cwd(), 'src/js/app.js');
-
-        return fs.copy(appJsSource, appJsDestination);
-      }
-    })
-    .then(() => fs.pathExists(path.resolve(process.cwd(), 'src/components/App.vue')))
-    .then(appVueExists => {
-      if (!appVueExists) {
-        const appVueSource = path.resolve(__dirname, '../../bin/templates/App.vue');
-        const appVueDestination = path.resolve(process.cwd(), 'src/components/App.vue');
-
-        return fs.copy(appVueSource, appVueDestination);
-      }
-    })
-    .then(() => fs.pathExists(path.resolve(process.cwd(), 'package.json')))
-    .then(packageJsonExists => {
-      if (!packageJsonExists) {
-        // Create a new package.json file.
-        return fs.writeJSON(path.resolve(process.cwd(), 'package.json'), { name: 'new-aurora-project', version: '0.1.0' }, { spaces: 2 });
-      }
+          if (typeof def.body === 'string') {
+            // Literally copy across template from the framework.
+            return fs.copy(
+              path.resolve(__dirname, '../../bin/templates', def.body),
+              path.resolve(process.cwd(), def.expected)
+            );
+          } else {
+            // Build a new file from JSON.
+            return fs.writeJSON(path.resolve(process.cwd(), def.expected), def.body, { spaces: 2 });
+          }
+        }
+      }));
     })
     .then(() => {
       const devDependencies = [
