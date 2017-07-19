@@ -1,37 +1,39 @@
 @mixin grid($size: 960px, $increment: 5, $gutter: 0) {
+  $top-level: &;
+
   @include clear;
 
   display: block;
   margin: 0 auto;
   max-width: $size;
 
-  > .grid-row {
+  & > &-row {
     @include clear;
 
-    + .grid-row {
+    & + #{$top-level}-row {
       margin-top: $gutter;
     }
 
     @include mq-large {
       margin-left: -$gutter;
 
-      > .column:first-child {
+      & > #{$top-level}-column:first-child {
         padding-left: $gutter;
       }
     }
   }
 
-  > .column, > .grid-row > .column {
+  & > &-column, & > &-row > &-column {
     width: 100%;
 
-    + .column {
+    & + #{$top-level}-column {
       padding-top: $gutter;
     }
 
     @include mq-large {
       float: left;
 
-      + .column {
+      & + #{$top-level}-column {
         padding-top: 0;
         padding-left: $gutter;
       }

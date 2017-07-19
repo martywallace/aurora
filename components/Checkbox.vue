@@ -1,6 +1,12 @@
 <script>
   import Icon from './Icon.vue';
 
+  const Events = {
+    INPUT: 'input',
+    UNCHECK: 'uncheck',
+    CHECK: 'check'
+  };
+
   export default {
     name: 'Checkbox',
 
@@ -15,8 +21,8 @@
 
     methods: {
       toggle() {
-        this.$emit(this.value ? 'uncheck' : 'check');
-        this.$emit('input', !this.value);
+        this.$emit(this.value ? Events.UNCHECK : Events.CHECK);
+        this.$emit(Events.INPUT, !this.value);
       }
     }
   }
@@ -43,13 +49,16 @@
     text-align: center;
     overflow: hidden;
     color: #DDD;
+    transition: all 250ms ease-in-out;
 
     &:hover {
       color: #AAA;
     }
 
     &--checked, &--checked:hover {
-      color: $aurora-theme-primary;
+      background: $aurora-theme-primary;
+      border: 1px solid $aurora-theme-primary;
+      color: #FFF;
     }
   }
 </style>

@@ -25,6 +25,7 @@ html {
 
 body {
   font: $aurora-theme-font-size sans-serif;
+  line-height: 1.6;
 }
 
 code, pre {
@@ -88,13 +89,22 @@ input, select, textarea, button {
 }
 
 input, select, textarea {
+  @include border;
+  @include rounded;
+
+  display: block;
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #DDD;
-  border-radius: $aurora-theme-border-radius-small;
+  padding: 8px 10px;
+  transition: border-color 250ms ease-in-out,
+    color 250ms ease-in-out;
 
   &:focus {
-    border: 1px solid #AAA;
+    border: 1px solid $aurora-theme-primary;
+  }
+
+  &:invalid {
+    border: 1px solid $aurora-theme-red;
+    color: $aurora-theme-red;
   }
 }
 
@@ -125,5 +135,14 @@ a {
 
   &:hover {
     color: lighten($aurora-theme-primary, 10%);
+  }
+}
+
+// Content spacing.
+h1, h2, h3, h4, h5, h6, p, table, form {
+  margin-bottom: $aurora-theme-content-spacing;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }

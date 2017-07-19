@@ -1,11 +1,13 @@
 .button {
+  @include rounded;
+
   display: inline-block;
   cursor: pointer;
-  padding: 12px 14px;
+  padding: 12px 22px;
   background: $aurora-theme-dim;
   text-decoration: none;
-  border-radius: $aurora-theme-border-radius-small;
   vertical-align: middle;
+  transition: background-color 250ms ease-in-out;
 
   &, &:hover, &:active {
     color: #222;
@@ -20,6 +22,7 @@
   }
 
   &--primary {
+    font-weight: bold;
     background: $aurora-theme-primary;
 
     &, &:hover, &:active {
@@ -36,11 +39,11 @@
   }
 
   &--large {
-    padding: 18px 22px;
+    padding: 18px 30px;
   }
 
   &--small {
-    padding: 4px 6px;
+    padding: 6px 10px;
   }
 }
 
