@@ -1,5 +1,9 @@
 <script>
+  import { Modal } from 'aurora-framework';
+
   export default {
+    components: { Modal },
+
     data() {
       return {
         message: 'Welcome!'
@@ -10,6 +14,8 @@
 
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <modal :visible="true">
+      <p>{{ message }}</p>
+    </modal>
   </div>
 </template>
