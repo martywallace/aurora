@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'aurora-multiselect',
+    name: 'MultiSelect',
     
     props: {
       value: {

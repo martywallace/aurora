@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'aurora-icon',
+    name: 'Icon',
 
     props: {
       type: {

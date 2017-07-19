@@ -1,15 +1,15 @@
-import checkbox from './components/checkbox.vue';
-import counter from './components/counter.vue';
-import dropdown from './components/dropdown.vue';
-import icon from './components/icon.vue';
-import modal from './components/modal.vue';
-import multiselect from './components/multiselect.vue';
+import Checkbox from './components/Checkbox.vue';
+import Counter from './components/Counter.vue';
+import Dropdown from './components/Dropdown.vue';
+import Icon from './components/Icon.vue';
+import Modal from './components/Modal.vue';
+import MultiSelect from './components/MultiSelect.vue';
 
 export {
-  checkbox,
-  counter,
-  dropdown,
-  icon,
-  modal,
-  multiselect
+  Checkbox,
+  Counter,
+  Dropdown,
+  Icon,
+  Modal,
+  MultiSelect
 };

@@ -2,7 +2,8 @@
 
 const aurora = require('commander');
 
-require('./commands/init')(aurora);
+aurora.version('0.1.0');
+
 require('./commands/build')(aurora);
 
 aurora.parse(process.argv);

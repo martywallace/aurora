@@ -1,10 +1,10 @@
 <script>
-  import icon from './icon.vue';
+  import Icon from './Icon.vue';
 
   export default {
-    name: 'aurora-counter',
+    name: 'Counter',
 
-    components: { icon },
+    components: { Icon },
 
     props: {
       value: {

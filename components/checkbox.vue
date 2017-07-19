@@ -1,10 +1,10 @@
 <script>
-  import icon from './icon.vue';
+  import Icon from './Icon.vue';
 
   export default {
-    name: 'aurora-checkbox',
+    name: 'Checkbox',
 
-    components: { icon },
+    components: { Icon },
 
     props: {
       value: {

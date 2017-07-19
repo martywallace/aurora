@@ -14,5 +14,7 @@ module.exports = program => program.command('build [options]')
       webpackConfigPath
     ], {
       NODE_ENV: opts.production ? 'production' : 'development'
+    }).catch(code => {
+      console.log(`Could not build Aurora application (error code: ${code}).`);
     });
 });

@@ -1,10 +1,10 @@
 <script>
-  import icon from './icon.vue';
+  import Icon from './Icon.vue';
 
   export default {
-    name: 'aurora-modal',
+    name: 'Modal',
 
-    components: { icon },
+    components: { Icon },
 
     props: {
       visible: {

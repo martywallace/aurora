@@ -1,10 +1,10 @@
 <script>
-  import icon from './icon.vue';
+  import Icon from './Icon.vue';
 
   export default {
-    name: 'aurora-dropdown',
+    name: 'Dropdown',
 
-    components: { icon },
+    components: { Icon },
 
     props: {
       value: {
