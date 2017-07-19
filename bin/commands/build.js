@@ -17,4 +17,4 @@ module.exports = program => program.command('build [options]')
     }).catch(code => {
       console.log(`Could not build Aurora application (error code: ${code}).`);
     });
-});
+  });
