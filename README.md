@@ -15,3 +15,8 @@ scripts to your package JSON, or call `./node_modules/bin/aurora` directly.
 * `aurora setup` - Set up a new Aurora application in the current directory.
 * `aurora build` - Perform a webpack build of the current project.
     * `aurora build --production` Perform a production build.
+
+## attribution.
+
+* The icons available via the `<Icon>` component are provided by [Entypo](http://www.entypo.com/)
+using the [IcoMoon application](https://icomoon.io/app).
