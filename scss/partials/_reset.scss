@@ -137,3 +137,12 @@ a {
     color: lighten($aurora-theme-primary, 10%);
   }
 }
+
+// Content spacing.
+h1, h2, h3, h4, h5, h6, p, table, form {
+  margin-bottom: $aurora-theme-content-spacing;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

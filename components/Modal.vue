@@ -1,6 +1,13 @@
 <script>
   import Icon from './Icon.vue';
 
+  const Events = {
+    CLICK_OUT: 'click-out',
+    CLOSE: 'close',
+    SHOW: 'show',
+    HIDE: 'hide'
+  };
+
   export default {
     name: 'Modal',
 
@@ -16,17 +23,17 @@
     methods: {
       click(event) {
         if (this.visible && event.target === event.currentTarget) {
-          this.$emit('click-out');
+          this.$emit(Events.CLICK_OUT);
         }
       },
 
       close() {
-        if (this.visible) this.$emit('close');
+        if (this.visible) this.$emit(Events.CLOSE);
       }
     },
 
     mounted() {
-      this.$watch('visible', visible => this.$emit(visible ? 'show' : 'hide'));
+      this.$watch('visible', visible => this.$emit(visible ? Events.SHOW : Events.HIDE));
     }
   }
 </script>

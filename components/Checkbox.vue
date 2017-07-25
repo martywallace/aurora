@@ -29,7 +29,7 @@
 </script>
 
 <template>
-  <span class="aurora-checkbox" role="checkbox" :aria-checked="value ? 'true' : 'false'" @click.prevent="toggle" :class="{ 'aurora-checkbox--checked': value }">
+  <span @click.prevent="toggle" class="aurora-checkbox" role="checkbox" :class="{ 'aurora-checkbox--checked': value }">
     <icon type="check"></icon>
   </span>
 </template>
