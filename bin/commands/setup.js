@@ -27,86 +27,86 @@ module.exports = program => program.command('setup')
     ];
 
     Promise.all(dirs.map(dir => fs.ensureDir(path.resolve(process.cwd(), dir))))
-    .then(() => Promise.all(files.map(def => fs.exists(path.resolve(process.cwd(), def.expected)))))
-    .then(exists => {
-      return Promise.all(exists.map((has, index) => {
-        if (has) {
-          // This file already exists, do not do anything.
-          return null;
-        } else {
-          // Create this file.
-          const def = files[index];
-
-          if (typeof def.body === 'string') {
-            // Literally copy across template from the framework.
-            return fs.copy(
-              path.resolve(__dirname, '../../bin/templates', def.body),
-              path.resolve(process.cwd(), def.expected)
-            );
+      .then(() => Promise.all(files.map(def => fs.exists(path.resolve(process.cwd(), def.expected)))))
+      .then(exists => {
+        return Promise.all(exists.map((has, index) => {
+          if (has) {
+            // This file already exists, do not do anything.
+            return null;
           } else {
-            // Build a new file from JSON.
-            return fs.writeJSON(path.resolve(process.cwd(), def.expected), def.body, { spaces: 2 });
+            // Create this file.
+            const def = files[index];
+
+            if (typeof def.body === 'string') {
+              // Literally copy across template from the framework.
+              return fs.copy(
+                path.resolve(__dirname, '../../bin/templates', def.body),
+                path.resolve(process.cwd(), def.expected)
+              );
+            } else {
+              // Build a new file from JSON.
+              return fs.writeJSON(path.resolve(process.cwd(), def.expected), def.body, { spaces: 2 });
+            }
           }
-        }
-      }));
-    })
-    .then(() => {
-      const devDependencies = [
-        'babel-core',
-        'babel-loader',
-        'babel-polyfill',
-        'babel-preset-es2015',
-        'css-loader',
-        'extract-text-webpack-plugin@^3.0.0',
-        'file-loader',
-        'node-sass',
-        'sass-loader',
-        'style-loader',
-        'uglifyjs-webpack-plugin@^0.4.6',
-        'vue-loader',
-        'vue-template-compiler',
-        'webpack@^3.3.0'
-      ];
+        }));
+      })
+      .then(() => {
+        const devDependencies = [
+          'babel-core',
+          'babel-loader',
+          'babel-polyfill',
+          'babel-preset-es2015',
+          'css-loader',
+          'extract-text-webpack-plugin@^3.0.0',
+          'file-loader',
+          'node-sass',
+          'sass-loader',
+          'style-loader',
+          'uglifyjs-webpack-plugin@^0.4.6',
+          'vue-loader',
+          'vue-template-compiler',
+          'webpack@^3.3.0'
+        ];
 
-      console.log(chalk.yellow('Installing dependencies.'));
+        console.log(chalk.yellow('Installing dependencies.'));
 
-      return spawn('npm', ['install', '--save-dev', ...devDependencies]);
-    })
-    .then(() => {
-      const dependencies = [
-        'aurora-framework',
-        'vue'
-      ];
+        return spawn('npm', ['install', '--save-dev', ...devDependencies]);
+      })
+      .then(() => {
+        const dependencies = [
+          'aurora-framework',
+          'vue'
+        ];
 
-      return spawn('npm', ['install', '--save', ...dependencies])
-    })
-    .then(() => {
-      const tree = archy({
-        nodes: [
-          {
-            label: 'src',
-            nodes: [
-              { label: 'components', nodes: [
-                { label: 'App.vue' }
-              ] },
-              { label: 'js', nodes: [
-                { label: 'app.js' }
-              ] },
-              { label: 'sass', nodes: [
-                { label: 'app.scss' }
-              ] }
-            ]
-          },
-          { label: '.babelrc' },
-          { label: 'package.json' },
-          { label: 'webpack.config.js' }
-        ]
-      });
+        return spawn('npm', ['install', '--save', ...dependencies])
+      })
+      .then(() => {
+        const tree = archy({
+          nodes: [
+            {
+              label: 'src',
+              nodes: [
+                { label: 'components', nodes: [
+                  { label: 'App.vue' }
+                ] },
+                { label: 'js', nodes: [
+                  { label: 'app.js' }
+                ] },
+                { label: 'sass', nodes: [
+                  { label: 'app.scss' }
+                ] }
+              ]
+            },
+            { label: '.babelrc' },
+            { label: 'package.json' },
+            { label: 'webpack.config.js' }
+          ]
+        });
 
-      console.log(EOL);
-      console.log(chalk.green('Aurora setup complete!'));
-      console.log(chalk.green('The following project structure has been created for you:'));
-      console.log(tree);
-    })
-    .catch(err => console.error(chalk.red(err)));
+        console.log(EOL);
+        console.log(chalk.green('Aurora setup complete!'));
+        console.log(chalk.green('The following project structure has been created for you:'));
+        console.log(tree);
+      })
+      .catch(err => console.error(chalk.red(err)));
   });
