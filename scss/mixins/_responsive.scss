@@ -1,3 +1,5 @@
+@import "../vars/general";
+
 @mixin mq($min) { @media screen and (min-width: $min) { @content; } }
 @mixin mq-medium { @include mq($aurora-mq-medium) { @content; } }
 @mixin mq-large { @include mq($aurora-mq-large) { @content; } }

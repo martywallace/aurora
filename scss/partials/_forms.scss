@@ -1,5 +1,11 @@
+@import "../vars/theme";
+@import "../mixins/grid";
+
 .form {
-  @include grid($size: 100%, $gutter: 20px);
+  @include grid(
+    $horizontal-gutter: 20px,
+    $vertical-gutter: 20px
+  );
 
   label {
     font-size: smaller;

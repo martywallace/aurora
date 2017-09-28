@@ -1,6 +1,6 @@
 @import "general";
 
-@mixin grid($size: 960px, $columns: 12, $gutter: 0) {
+@mixin grid($size: 100%, $columns: 12, $horizontal-gutter: 0, $vertical-gutter: 0) {
   @include clear;
 
   max-width: $size;
@@ -9,11 +9,11 @@
   > .row {
     @include clear;
 
-    @if $gutter != 0 {
-      margin-left: -$gutter;
+    @if $horizontal-gutter != 0 {
+      margin-left: -$horizontal-gutter;
 
       > .column {
-        padding-left: $gutter;
+        padding-left: $horizontal-gutter;
       }
     }
   }
@@ -31,6 +31,12 @@
       &-offset-#{$i} {
         margin-left: ($i / $columns) * 100%;
       }
+    }
+  }
+
+  > .row, > .column {
+    + .row, + .column {
+      margin-top: $vertical-gutter;
     }
   }
 }
