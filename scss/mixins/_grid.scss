@@ -7,7 +7,7 @@
   max-width: $size;
   margin: 0 auto;
 
-  > .row {
+  & > .row {
     @include clear;
 
     &:last-child {
@@ -16,7 +16,7 @@
       }
     }
 
-    > .column {
+    & > .column {
       width: 100%;
       float: left;
       margin-bottom: $vertical-gutter;
@@ -43,7 +43,7 @@
     @if $horizontal-gutter != 0 {
       margin-left: -$horizontal-gutter;
 
-      > .column {
+      & > .column {
         padding-left: $horizontal-gutter;
       }
     }
