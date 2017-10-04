@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: '{{ name }}',
+    name: '{{ name|pascal }}',
     components: { },
 
     props: {
@@ -23,13 +23,13 @@
 </script>
 
 <template>
-  <div class="{{ name }}">
-    <span>{{ name }}</span>
+  <div class="{{ name|kebab }}">
+    <span>{{ name|pascal }}</span>
   </div>
 </template>
 
 <style lang="scss">
-  .{{ name }} {
+  .{{ name|kebab }} {
     //
   }
 </style>

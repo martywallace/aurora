@@ -1,6 +1,6 @@
 {
   "name": "aurora-framework",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Vue oriented front-end development framework.",
   "license": "MIT",
   "author": "Marty Wallace <marty@martywallace.com> (https://martywallace.com)",
@@ -12,6 +12,8 @@
     "chalk": "^2.0.1",
     "commander": "^2.11.0",
     "fs-extra": "^4.0.0",
-    "nunjucks": "^3.0.1"
+    "kebab-case": "^1.0.0",
+    "nunjucks": "^3.0.1",
+    "pascal-case": "^2.0.1"
   }
 }
