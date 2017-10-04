@@ -22,6 +22,7 @@ module.exports = program => program.command('setup')
       { expected: 'src/sass/app.scss', body: 'app.scss' },
       { expected: 'src/components/App.vue', body: 'App.vue' },
       { expected: 'webpack.config.js', body: 'webpack.config.js' },
+      { expected: '.gitignore', body: 'gitignore' },
       { expected: '.babelrc', body: { presets: ['es2015'] } },
       { expected: 'package.json', body: { name: 'new-aurora-app', version: '0.1.0' } }
     ];
