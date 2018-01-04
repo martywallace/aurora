@@ -1,9 +1,9 @@
 {
   "name": "aurora-framework",
-  "version": "3.0.1",
-  "description": "Vue oriented front-end development framework.",
+  "version": "3.1.0",
+  "description": "Development toolkit for Vue applications.",
   "license": "MIT",
-  "author": "Marty Wallace <marty@martywallace.com> (https://martywallace.com)",
+  "author": "Marty Wallace <marty@ascensionwd.com.au> (https://ascensionwd.com.au)",
   "bin": {
     "aurora": "./bin/aurora.js"
   },

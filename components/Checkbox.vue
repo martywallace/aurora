@@ -30,7 +30,7 @@
 
 <template>
   <span @click.prevent="toggle" class="aurora-checkbox" role="checkbox" :class="{ 'aurora-checkbox--checked': value }">
-    <icon type="check"></icon>
+    <Icon type="check" />
   </span>
 </template>
 

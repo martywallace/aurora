@@ -1,6 +1,4 @@
 <script>
-  import Icon from './Icon.vue';
-
   const Events = {
     CLICK_OUT: 'click-out',
     CLOSE: 'close',
@@ -10,8 +8,6 @@
 
   export default {
     name: 'Modal',
-
-    components: { Icon },
 
     props: {
       visible: {
@@ -28,7 +24,9 @@
       },
 
       close() {
-        if (this.visible) this.$emit(Events.CLOSE);
+        if (this.visible) {
+          this.$emit(Events.CLOSE);
+        }
       }
     },
 
@@ -43,7 +41,7 @@
     <div @click.prevent="click" class="aurora-modal-container" v-if="visible">
       <div class="aurora-modal">
         <div class="aurora-modal-body">
-          <slot></slot>
+          <slot />
         </div>
       </div>
     </div>
