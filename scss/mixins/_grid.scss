@@ -11,8 +11,8 @@
     @include clear;
 
     &:last-child {
-      @if $horizontal-gutter != 0 {
-        margin-bottom: -$horizontal-gutter;
+      @if $vertical-gutter != 0 {
+        margin-bottom: -$vertical-gutter;
       }
     }
 
