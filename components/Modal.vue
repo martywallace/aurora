@@ -38,7 +38,7 @@
 
 <template>
   <transition name="aurora-modal-transition">
-    <div @click.prevent="click" class="aurora-modal-container" v-if="visible">
+    <div @click="click" class="aurora-modal-container" v-if="visible">
       <div class="aurora-modal">
         <div class="aurora-modal-body">
           <slot />
